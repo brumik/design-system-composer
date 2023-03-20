@@ -1,4 +1,4 @@
-export { default as default } from './App';
+export { default } from './App';
 export type {
   ComponentConfigurationFormat,
   ComponentConfigurationFormatEntry,

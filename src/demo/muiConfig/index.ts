@@ -7,6 +7,12 @@ const config: ComponentConfigurationFormat = {
       type: 'node',
       defaultValue: 'Button',
     },
+    dataId: {
+      type: 'string',
+    },
+    dataIdNumber: {
+      type: 'number',
+    },
     color: {
       type: 'select',
       options: ['primary', 'secondary', 'error', 'success'],
@@ -23,7 +29,7 @@ const config: ComponentConfigurationFormat = {
   },
   Card: {
     children: { type: 'node' },
-    raised: { type: 'boolean' },
+    raised: { type: 'boolean', defaultValue: false },
   },
 };
 

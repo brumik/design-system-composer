@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { Editor } from './editor';
 import {
   CompositionContextProvider,
@@ -7,17 +6,23 @@ import {
   useDataContext,
   UserInteractionContextProvider,
 } from './Providers';
-import { CodePreview, Preview } from './preview';
-import SchemaPreview from './preview/SchemaPreview';
+import { 
+  CodePreview,
+  Preview,
+  SchemaPreview
+} from './preview';
 import { ComponentConfigurationFormat } from './types';
+import {
+  Box,
+  Grid,
+  Tab,
+  Tabs,
+} from '@mui/material';
 
-const LayoutGrid = styled.div`
-  display: grid;
-  grid-template-columns: 5fr 2fr;
-  min-height: 100vh;
-  box-sizing: border-box;
-  min-height: 100vh;
-`;
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 interface Props {
   /**
@@ -33,31 +38,32 @@ const App: FC<Props> = ({
   config,
 }) => {
   const { setConfig } = useDataContext();
-  const [tab, setTab] = useState(1);
+  const [tab, setTab] = useState(0);
 
   useEffect(() => {
     setConfig(config);
   }, [setConfig, config]);
 
   return (
-    <div className="App">
-      <LayoutGrid>
-        <div style={{ background: '#DDD' }}>
-          {tab === 1 && <Preview Components={Components} />}
-          {tab === 2 && <CodePreview />}
-          {tab === 3 && <SchemaPreview />}
-        </div>
-        <div style={{ border: '5px black double' }}>
-          <div style={{ margin: '10px 0', textAlign: 'center', }}>
-            <h3>Preview (left panel)</h3>
-            <button onClick={() => { setTab(1) }}>Show design preview</button>{' '}
-            <button onClick={() => { setTab(2) }}>Show react code</button>{' '}
-            <button onClick={() => { setTab(3) }}>Show internal schema</button>{' '}
-          </div>
-          <Editor />
-        </div>
-      </LayoutGrid>
-    </div>
+    <Grid container>
+      <Grid xs={12}>
+        <Tabs onChange={ (_e, num) => setTab(num) } value={tab}>
+          <Tab label="Show design preview" />
+          <Tab label="Show react code" />
+          <Tab label="Show internal schema" />
+        </Tabs>
+      </Grid>
+      <Grid xs={8} sx={{ flexDirection: 'column' }}>
+        <Box sx={{ padding: 1, background: '#DDD', height: '100%' }}>
+          {tab === 0 && <Preview Components={Components} />}
+          {tab === 1 && <CodePreview />}
+          {tab === 2 && <SchemaPreview />}
+        </Box>
+      </Grid>
+      <Grid xs={4}>
+        <Editor />
+      </Grid>
+    </Grid>
   );
 }
 

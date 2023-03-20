@@ -1,9 +1,12 @@
+import { Autocomplete, Button, Grid, TextField } from '@mui/material';
 import  { FC, useEffect, useState } from 'react';
-import { useCompositionContext, useDataContext, useUserInteractionContext } from '../Providers';
+import { useCompositionContext, useDataContext, useUserInteractionContext } from '../../Providers';
 import { 
   ComponentConfigurationNodeFormatEntry,
   SchemaFormatParent
-} from '../types';
+} from '../../types';
+
+const SIMPLE_ELEMENT_NAME = 'Simple string element';
 
 interface Props {
   parent?: SchemaFormatParent
@@ -45,22 +48,27 @@ const AddCompositionButton: FC<Props> = ({
   }
 
   return (
-    <>
-      <select
-        key="select"
-        onChange={ (e) => setSelectedOption(e.target.value) }
-        value={ selectedOption }
-      >
-        <option value={''} disabled>Select your option</option>
-        { options().map(el => <option key={ el } value={ el } >{ el }</option>) }
-      </select>
-      <button
-        key="button"
-        onClick={ () => loadComposition(selectedOption, parent) }
-      >
-        Add composition
-      </button>
-    </>
+    <Grid container sx={{ alignItems: 'center' }}>
+      <Grid item xs={8} sx={{ paddingRight: 1 }}>
+        <Autocomplete
+          size='small'
+          renderInput={(params) => <TextField {...params} label="Select composition" />}
+          options={ [SIMPLE_ELEMENT_NAME, ...options()] }
+          onChange={ (_, value) => setSelectedOption(value ?? '') }
+          value={ selectedOption }
+        />
+      </Grid>
+      <Grid item xs={4}>
+        <Button
+          fullWidth
+          size='medium'
+          variant='contained'
+          onClick={ () => loadComposition(selectedOption, parent) }
+        >
+          Add composition
+        </Button>
+      </Grid>
+    </Grid>
   );
 };
 

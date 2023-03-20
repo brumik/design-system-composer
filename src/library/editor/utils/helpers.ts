@@ -1,4 +1,4 @@
-import { SchemaFormat } from "../types";
+import { SchemaFormat } from "../../types";
 
 export type ValueTypes = undefined | boolean | string | number | { _map: true };
 

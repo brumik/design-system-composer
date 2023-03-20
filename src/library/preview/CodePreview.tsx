@@ -1,3 +1,4 @@
+import { Card } from '@mui/material';
 import  { FC } from 'react';
 import { DataContextType, useDataContext } from '../Providers';
 import { SchemaFormat, USE_EVAL_TAG } from '../types';
@@ -84,12 +85,14 @@ const CodePreview: FC<Record<never, never>> = () => {
   const { rootElements, getChildren } = useDataContext();
 
   return (
-    <pre>
-      { rootElements && codeMapper(
-        rootElements,
-        getChildren
-      )}
-    </pre>
+    <Card>
+      <pre>
+        { rootElements && codeMapper(
+          rootElements,
+          getChildren
+        )}
+      </pre>
+    </Card>
   )
 };
 

@@ -1,12 +1,14 @@
+import { useCallback } from "react";
+
 const useLocalStorage = <T>(localStorageKey: string, defaultValue: T) => {
   type DatabaseFormat = Record<string, T>;
 
-  const list = (): DatabaseFormat => {
+  const list = useCallback((): DatabaseFormat => {
     const presets = window.localStorage.getItem(localStorageKey) ?? '{}';
     return JSON.parse(presets) as DatabaseFormat;
-  };
+  }, [localStorageKey]);
 
-  const getItem = (name: string): T => {
+  const getItem = useCallback((name: string): T => {
     const presets = window.localStorage.getItem(localStorageKey) ?? '{}';
     const parsedPresets = JSON.parse(presets) as DatabaseFormat;
   
@@ -16,9 +18,9 @@ const useLocalStorage = <T>(localStorageKey: string, defaultValue: T) => {
     }
   
     return parsedPresets[name];
-  };
+  }, [localStorageKey, defaultValue]);
   
-  const saveItem = (name: string, preset: T): DatabaseFormat => {
+  const saveItem = useCallback((name: string, preset: T): DatabaseFormat => {
     const existingPresets = list() as DatabaseFormat;
     const newPresets = {
       ...existingPresets,
@@ -28,9 +30,9 @@ const useLocalStorage = <T>(localStorageKey: string, defaultValue: T) => {
     window.localStorage.setItem(localStorageKey, JSON.stringify(newPresets));
   
     return newPresets;
-  };
+  }, [localStorageKey, list]);
   
-  const deleteItem = (name: string): DatabaseFormat => {
+  const deleteItem = useCallback((name: string): DatabaseFormat => {
     const existingPresets = list() as DatabaseFormat;
     delete existingPresets[name];
   
@@ -38,11 +40,11 @@ const useLocalStorage = <T>(localStorageKey: string, defaultValue: T) => {
   
     return { ...existingPresets };
   
-  };
+  }, [localStorageKey, list]);
 
-  const clearAll = () => {
+  const clearAll = useCallback(() => {
     window.localStorage.clear();
-  };
+  }, []);
   
   return {
     list,

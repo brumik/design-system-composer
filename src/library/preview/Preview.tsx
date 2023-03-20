@@ -3,6 +3,7 @@ import { useDataContext, useUserInteractionContext } from "../Providers";
 import { SchemaFormat, USE_EVAL_TAG } from "../types";
 
 // https://rollupjs.org/troubleshooting/#avoiding-eval
+// eslint-disable-next-line
 const eval2 = eval;
 
 interface Props {

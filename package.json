@@ -18,6 +18,11 @@
   "author": "Levente Berky",
   "license": "MIT",
   "peerDependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.10.6",
+    "@mui/icons-material": "^5.11.11",
+    "@mui/material": "^5.11.13",
+    "@mui/styled-engine-sc": "^5.11.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.9"
@@ -25,9 +30,11 @@
   "devDependencies": {
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
+    "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.11.11",
+    "@mui/lab": "^5.0.0-alpha.123",
     "@mui/material": "^5.11.13",
+    "@mui/styled-engine-sc": "^5.11.11",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-typescript": "^11.0.0",
     "@testing-library/jest-dom": "^5.16.5",

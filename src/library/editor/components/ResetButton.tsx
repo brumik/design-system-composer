@@ -1,13 +1,16 @@
+import { Button } from '@mui/material';
 import  { FC } from 'react';
-import { useDataContext, useUserInteractionContext } from '../Providers';
-import { updateElement } from './helpers';
+import { useDataContext, useUserInteractionContext } from '../../Providers';
+import { updateElement } from '../utils/helpers';
 
 interface Props {
   propName: string;
+  [key: string]: any;
 }
 
 const ResetButton: FC<Props> = ({
-  propName
+  propName,
+  ...props
 }) => {
   const { selectedElement } = useUserInteractionContext();
   const { setElement, config } = useDataContext();
@@ -26,11 +29,15 @@ const ResetButton: FC<Props> = ({
   }
 
   return (
-    <button
+    <Button
+      variant='outlined'
+      color='warning'
+      fullWidth
       onClick={ onClick }
+      {...props}
     >
-      { propConfig.defaultValue ? 'Set to default' : 'Set to undefined' }
-    </button>
+      Reset value
+    </Button>
   );
 };
 
