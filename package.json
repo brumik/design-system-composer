@@ -1,7 +1,8 @@
 {
   "name": "design-system-composer",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.2",
+  "description": "A simple editor where you can plug your design system and you can use the editor to put the elements together to make a beautiful and quick design work.",
+  "keywords": ["design", "system", "editor", "prototyping", "quick", "configurable"],
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "files": [
@@ -20,6 +21,8 @@
   "peerDependencies": {
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.10.6",
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/lab": "^5.0.0-alpha.123",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.13",
     "@mui/styled-engine-sc": "^5.11.11",
