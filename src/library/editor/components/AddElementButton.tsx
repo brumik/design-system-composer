@@ -86,7 +86,7 @@ const AddElementButton: FC<Props> = ({
           renderInput={(params) => <TextField {...params} label="Select element" />}
           options={ [SIMPLE_ELEMENT_NAME, ...options()] }
           onChange={ (_, value) => setSelectedOption(value ?? '') }
-          value={ selectedOption ?? null }
+          inputValue={ selectedOption ?? null }
         />
       </Grid>
       <Grid item xs={4}>

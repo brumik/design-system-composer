@@ -22,6 +22,7 @@ const CompositionList: FC<Record<never, never>> = () => {
           <>
               { elements.map(el => (
                 <ButtonTreeItem
+                  key={ el.name }
                   nodeId={ el.name }
                   label={ `${ el.name } [${ el.componentName }]` }
                   buttons={[

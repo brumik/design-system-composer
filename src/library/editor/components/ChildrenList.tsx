@@ -19,6 +19,7 @@ const ChildrenList: FC<Props> = ({
     <TreeView>
       { elements.map(el =>
         <ButtonTreeItem
+          key={el.id}
           nodeId={el.id}
           label={el._map ? el.name : 'string'}
           buttons={[

@@ -20,6 +20,7 @@ const ElementTree: FC<Props> = ({
       const label = el?._map ? el.name : `Atomic: ${el.value}`;
       return (
         <ButtonTreeItem
+          key={ el.id }
           nodeId={ el.id }
           label={ label }
           buttons={[
