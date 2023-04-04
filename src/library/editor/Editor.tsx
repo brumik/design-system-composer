@@ -4,7 +4,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Card, CardContent, Typog
 import ComponentTreeSection from './sections/ComponentTreeSection';
 import SelectionSettingsSection from './sections/SelectionSettingsSection';
 import RootElementSection from './sections/RootElementSection';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { ExpandMore } from '@mui/icons-material';
 import ElementEditorSection from './sections/ElementEditorSection';
 
 const Editor: FC<Record<never, never>> = () => {
@@ -12,7 +12,7 @@ const Editor: FC<Record<never, never>> = () => {
     <Card raised>
       <CardContent>
         <Accordion>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          <AccordionSummary expandIcon={<ExpandMore />}>
             <Typography variant="h5">Element select settings</Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -21,7 +21,7 @@ const Editor: FC<Record<never, never>> = () => {
         </Accordion>
 
         <Accordion defaultExpanded>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          <AccordionSummary expandIcon={<ExpandMore />}>
             <Typography variant="h5">Root element</Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -30,7 +30,7 @@ const Editor: FC<Record<never, never>> = () => {
         </Accordion>
 
         <Accordion defaultExpanded>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          <AccordionSummary expandIcon={<ExpandMore />}>
             <Typography variant="h5">Selected element editor</Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -39,7 +39,7 @@ const Editor: FC<Record<never, never>> = () => {
         </Accordion>
         
         <Accordion defaultExpanded>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          <AccordionSummary expandIcon={<ExpandMore />}>
             <Typography variant="h5">Component tree</Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -48,7 +48,7 @@ const Editor: FC<Record<never, never>> = () => {
         </Accordion>
 
         <Accordion>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          <AccordionSummary expandIcon={<ExpandMore />}>
             <Typography variant="h5">Component compositions</Typography>
           </AccordionSummary>
           <AccordionDetails>

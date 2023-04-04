@@ -1,8 +1,7 @@
 import { TreeView } from "@mui/lab";
 import { Box } from "@mui/material";
 import { FC } from "react";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { ChevronRight, ExpandMore } from '@mui/icons-material';
 import ElementTree from "../components/ElementTree";
 import SaveComponentTreeSection from "./SaveComponentTreeSection";
 
@@ -10,8 +9,8 @@ const ComponentTreeSection: FC<Record<never, never>> = () => {
   return (
     <Box>
       <TreeView
-        defaultCollapseIcon={<ExpandMoreIcon />}
-        defaultExpandIcon={<ChevronRightIcon />}
+        defaultCollapseIcon={<ExpandMore />}
+        defaultExpandIcon={<ChevronRight />}
       >
         <ElementTree parentId={null} />
       </TreeView>
