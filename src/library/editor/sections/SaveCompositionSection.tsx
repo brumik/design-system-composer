@@ -60,7 +60,7 @@ const SaveCompositionSection: FC<Record<never, never>> = () => {
             load a set of compositions the active set will be replaced.
         </Typography>
         <Grid container sx={{ marginTop: 1 }}>
-          <Grid xs={12} md={7} sx={{ padding: 1 }}>
+          <Grid item xs={12} md={7} sx={{ padding: 1 }}>
             <Input
               fullWidth
               placeholder="Composition set name"
@@ -68,7 +68,7 @@ const SaveCompositionSection: FC<Record<never, never>> = () => {
               onChange={ (e) => setNameInput(e.target.value) }
             />
           </Grid>
-          <Grid xs={12} md={5} sx={{ padding: 1 }}>
+          <Grid item xs={12} md={5} sx={{ padding: 1 }}>
             <Button
               fullWidth
               size="small"
@@ -93,6 +93,7 @@ const SaveCompositionSection: FC<Record<never, never>> = () => {
             <TreeView>
               { presets.map(el => (
                 <ButtonTreeItem
+                  key={el}
                   nodeId={el}
                   label={el}
                   buttons={[

@@ -55,7 +55,7 @@ const AddCompositionButton: FC<Props> = ({
           renderInput={(params) => <TextField {...params} label="Select composition" />}
           options={ [SIMPLE_ELEMENT_NAME, ...options()] }
           onChange={ (_, value) => setSelectedOption(value ?? '') }
-          value={ selectedOption }
+          value={ selectedOption ?? null }
         />
       </Grid>
       <Grid item xs={4}>

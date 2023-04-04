@@ -94,6 +94,7 @@ const SaveComponentTreeSection: FC<Record<never, never>> = () => {
             <TreeView>
               { presets.map(el => (
                 <ButtonTreeItem
+                  key={el}
                   nodeId={el}
                   label={el}
                   buttons={[

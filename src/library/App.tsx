@@ -46,21 +46,21 @@ const App: FC<Props> = ({
 
   return (
     <Grid container>
-      <Grid xs={12}>
+      <Grid item xs={12}>
         <Tabs onChange={ (_e, num) => setTab(num) } value={tab}>
           <Tab label="Show design preview" />
           <Tab label="Show react code" />
           <Tab label="Show internal schema" />
         </Tabs>
       </Grid>
-      <Grid xs={8} sx={{ flexDirection: 'column' }}>
+      <Grid item xs={8} sx={{ flexDirection: 'column' }}>
         <Box sx={{ padding: 1, background: '#DDD', height: '100%' }}>
           {tab === 0 && <Preview Components={Components} />}
           {tab === 1 && <CodePreview />}
           {tab === 2 && <SchemaPreview />}
         </Box>
       </Grid>
-      <Grid xs={4}>
+      <Grid item xs={4}>
         <Editor />
       </Grid>
     </Grid>

@@ -20,8 +20,8 @@ const ButtonTreeItem: FC<Props> = ({
       <Grid>
         <Typography variant='body1'>{ label }</Typography>
       </Grid>
-      { buttons.map(button => (
-        <Grid>
+      { buttons.map((button, idx) => (
+        <Grid key={ idx }>
           { button }
         </Grid>
       ))}
