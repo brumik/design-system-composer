@@ -1,5 +1,5 @@
 import { Grid, Switch, Typography } from '@mui/material';
-import  { FC } from 'react';
+import  { FC, useMemo } from 'react';
 import { useDataContext, useUserInteractionContext } from '../../Providers';
 import { updateElement } from '../utils/helpers';
 import ResetButton from './ResetButton';
@@ -14,6 +14,13 @@ const BooleanEditor: FC<Props> = ({
   const { selectedElement } = useUserInteractionContext();
   const { setElement } = useDataContext();
 
+  const currentValue = useMemo(() => 
+    selectedElement?._map
+      ? selectedElement?.props[propName] ?? false
+      : selectedElement?.value,
+    [propName, selectedElement]
+  );
+
   // Early quit, should not happen at all
   if (!selectedElement)
     return null;
@@ -24,10 +31,6 @@ const BooleanEditor: FC<Props> = ({
     setElement(selectedElement.id, newElement);
   }
 
-  const currentValue = selectedElement._map
-    ? selectedElement.props[propName]
-    : selectedElement.value;
-
   return (
     <Grid container sx={{ alignItems: 'center' }}>
       <Grid item xs={3} sx={{ wordWrap: 'break-word' }}>
@@ -35,8 +38,8 @@ const BooleanEditor: FC<Props> = ({
       </Grid>
       <Grid item xs={5} sx={{ paddingRight: 1 }}>
         <Switch
-          value={ !!currentValue }
-          onChange={ () => onChange(!currentValue) }
+          checked={ !!currentValue }
+          onChange={ (e) => onChange(e.target.checked) }
         />
       </Grid>
       <Grid item xs={4}>
