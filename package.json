@@ -1,6 +1,6 @@
 {
   "name": "design-system-composer",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A simple editor where you can plug your design system and you can use the editor to put the elements together to make a beautiful and quick design work.",
   "keywords": ["design", "system", "editor", "prototyping", "quick", "configurable"],
   "main": "dist/index.js",
