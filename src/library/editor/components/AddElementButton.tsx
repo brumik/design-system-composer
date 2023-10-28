@@ -91,10 +91,14 @@ const AddElementButton: FC<Props> = ({
       </Grid>
       <Grid item xs={4}>
         <Button
+          disabled={!selectedOption}
           fullWidth
           size='medium'
           variant='contained'
           onClick={ () => {
+            if (!selectedOption) {
+              return;
+            }
             addElement(
               createElementPreviewEntry(selectedOption, parent, config)
             );
