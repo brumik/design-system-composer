@@ -2,7 +2,14 @@
   "name": "design-system-composer",
   "version": "0.0.8",
   "description": "A simple editor where you can plug your design system and you can use the editor to put the elements together to make a beautiful and quick design work.",
-  "keywords": ["design", "system", "editor", "prototyping", "quick", "configurable"],
+  "keywords": [
+    "design",
+    "system",
+    "editor",
+    "prototyping",
+    "quick",
+    "configurable"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "files": [
@@ -14,7 +21,9 @@
     "build-watch": "rollup -c -w",
     "start": "react-scripts start",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "react-scripts build",
+    "deploy": "gh-pages -d build"
   },
   "author": "Levente Berky",
   "license": "MIT",
@@ -22,8 +31,8 @@
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.10.6",
     "@fontsource/roboto": "^4.5.8",
-    "@mui/lab": "^5.0.0-alpha.123",
     "@mui/icons-material": "^5.11.11",
+    "@mui/lab": "^5.0.0-alpha.123",
     "@mui/material": "^5.11.13",
     "@mui/styled-engine-sc": "^5.11.11",
     "react": "^17 || ^18",
@@ -48,6 +57,7 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/styled-components": "^5.1.26",
+    "gh-pages": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
