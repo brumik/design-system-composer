@@ -13,6 +13,8 @@ export interface DataContextType {
   deleteElement: (id: string) => void;
   config: ComponentConfigurationFormat;
   setConfig: (config: ComponentConfigurationFormat) => void;
+  namespace: string;
+  setNamespace: (namespace: string) => void;
 }
 
 const initialState: DataContextType = {
@@ -32,7 +34,9 @@ const initialState: DataContextType = {
   },
   deleteElement: () => console.warn('Delete element is not set up.'),
   config: {},
-  setConfig: () => console.warn('Set config is not set up.')
+  setConfig: () => console.warn('Set config is not set up.'),
+  namespace: '',
+  setNamespace: () => console.warn('Set namespacae is not sep up.')
 };
 
 export const DataContext = createContext<DataContextType>(initialState);
@@ -40,6 +44,7 @@ export const DataContext = createContext<DataContextType>(initialState);
 export const useDataContext = () => useContext(DataContext) as DataContextType;
 
 const DataProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [namespace, setNamespace] = useState<string>('');
   const [data, setData] = useState<SchemaFormat[]>([]);
   const [config, setConfig] = useState<ComponentConfigurationFormat>({})
 
@@ -109,6 +114,8 @@ const DataProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
         deleteElement,
         config,
         setConfig,
+        namespace,
+        setNamespace
       }}
     >
       { children }

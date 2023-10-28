@@ -31,18 +31,27 @@ interface Props {
   Components: Record<string, any>;
 
   config: ComponentConfigurationFormat;
+
+  /**
+   * The namespace ensures that if you run more instances of this library on
+   * the same domain (for example localhost) your local storage is not mixed
+   * together and you can still use the save function properly.
+   */
+  namespace?: string;
 }
 
 const App: FC<Props> = ({
   Components,
   config,
+  namespace = ''
 }) => {
-  const { setConfig } = useDataContext();
+  const { setConfig, setNamespace } = useDataContext();
   const [tab, setTab] = useState(0);
 
   useEffect(() => {
     setConfig(config);
-  }, [setConfig, config]);
+    setNamespace(namespace);
+  }, [setConfig, config, namespace, setNamespace]);
 
   return (
     <Grid container>

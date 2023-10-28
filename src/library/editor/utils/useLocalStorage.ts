@@ -1,7 +1,10 @@
 import { useCallback } from "react";
+import { useDataContext } from "../../Providers";
 
-const useLocalStorage = <T>(localStorageKey: string, defaultValue: T) => {
+const useLocalStorage = <T>(key: string, defaultValue: T) => {
   type DatabaseFormat = Record<string, T>;
+  const { namespace } = useDataContext();
+  const localStorageKey = `${namespace}/${key}`;
 
   const list = useCallback((): DatabaseFormat => {
     const presets = window.localStorage.getItem(localStorageKey) ?? '{}';

@@ -30,6 +30,7 @@ root.render(
     <App
       Components={Components}
       config={config}
+      namespace='demo-app'
     />
   </StrictMode>
 );
