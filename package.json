@@ -1,6 +1,6 @@
 {
   "name": "design-system-composer",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "homepage": "https://brumik.github.io/design-system-composer",
   "description": "A simple editor where you can plug your design system and you can use the editor to put the elements together to make a beautiful and quick design work.",
   "keywords": [
