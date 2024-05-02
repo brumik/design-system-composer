@@ -1,4 +1,4 @@
-import  { createElement, FC } from "react";
+import  { createElement, FC, ReactNode } from "react";
 import { useDataContext, useUserInteractionContext } from "../Providers";
 import { SchemaFormat, USE_EVAL_TAG } from "../types";
 
@@ -11,10 +11,12 @@ interface Props {
    * The components, example: import * as Components from 'my-design-library'
    */
   Components: Record<string, any>;
+  RootElement: FC<{ children: ReactNode }>;
 }
 
 const Preview: FC<Props> = ({
-  Components
+  Components,
+  RootElement
 }) => {
   const { rootElements, getChildren, getElement } = useDataContext();
   const {
@@ -119,9 +121,9 @@ const Preview: FC<Props> = ({
   
 
   return ( 
-    <>
+    <RootElement>
       { rootElements && mapper(rootElements) }
-    </>
+    </RootElement>
   )
 };
 

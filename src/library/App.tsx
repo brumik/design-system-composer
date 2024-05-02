@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, ReactNode, useEffect, useState } from 'react';
 import { Editor } from './editor';
 import {
   CompositionContextProvider,
@@ -38,12 +38,15 @@ interface Props {
    * together and you can still use the save function properly.
    */
   namespace?: string;
+
+  RootElement: FC<{ children: ReactNode }>;
 }
 
 const App: FC<Props> = ({
   Components,
   config,
-  namespace = ''
+  namespace = '',
+  RootElement
 }) => {
   const { setConfig, setNamespace } = useDataContext();
   const [tab, setTab] = useState(0);
@@ -64,7 +67,7 @@ const App: FC<Props> = ({
       </Grid>
       <Grid item xs={8} sx={{ flexDirection: 'column' }}>
         <Box sx={{ padding: 1, background: '#DDD', height: '100%' }}>
-          {tab === 0 && <Preview Components={Components} />}
+          {tab === 0 && <Preview Components={Components} RootElement={RootElement} />}
           {tab === 1 && <CodePreview />}
           {tab === 2 && <SchemaPreview />}
         </Box>

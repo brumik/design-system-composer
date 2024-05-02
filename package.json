@@ -13,6 +13,7 @@
   ],
   "main": "dist/index.js",
   "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -32,6 +33,7 @@
   "peerDependencies": {
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.11.11",
     "@mui/lab": "^5.0.0-alpha.123",
@@ -86,5 +88,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "@klara/klarity": "^1.17.1",
+    "heic2any": "^0.0.4"
   }
 }
