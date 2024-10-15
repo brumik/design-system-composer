@@ -5,3 +5,14 @@
 The issues were moved to GH issues: https://github.com/brumik/design-system-composer/issues
 
 NPM Package: https://www.npmjs.com/package/design-system-composer
+
+## Development
+
+- Go to `/lib` and run `npm link`
+  - run `npm run build-watch`
+- Go to `/demo` and run `npm i`
+  - run `npm start` to bring up development server
+
+## Deployment
+
+- TODO

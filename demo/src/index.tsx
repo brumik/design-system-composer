@@ -1,9 +1,9 @@
 import { StrictMode } from 'react';
-import ReactDOM from 'react-dom/client';
-import App from '../library';
+import App from 'design-system-composer';
 import * as Components from '@mui/material';
 import config from './muiConfig';
 import { createGlobalStyle } from 'styled-components';
+import ReactDOM from 'react-dom/client';
 
 export const GlobalStyle = createGlobalStyle`
   code {

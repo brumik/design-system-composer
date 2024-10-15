@@ -1,4 +1,4 @@
-import { ComponentConfigurationFormat } from "../../library";
+import { ComponentConfigurationFormat } from "design-system-composer";
 
 
 const config: ComponentConfigurationFormat = {
@@ -6,12 +6,6 @@ const config: ComponentConfigurationFormat = {
     children: {
       type: 'node',
       defaultValue: 'Button',
-    },
-    dataId: {
-      type: 'string',
-    },
-    dataIdNumber: {
-      type: 'number',
     },
     color: {
       type: 'select',

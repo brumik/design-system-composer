@@ -1,18 +1,18 @@
 {
+  "include": ["src"],
   "compilerOptions": {
     "outDir": "dist",
     "module": "esnext",
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "target": "esnext",
+    "lib": ["esnext"],
     "sourceMap": true,
-    "allowJs": false,
+    "moduleResolution": "node",
     "jsx": "react-jsx",
     "declaration": true,
-    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+
+    "allowJs": false,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -22,8 +22,11 @@
     "noUnusedParameters": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
+
+    "baseUrl": ".",
     "paths": {
-      "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
+      "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"],
+      "@/*": ["./*"]
     }
   }
 }

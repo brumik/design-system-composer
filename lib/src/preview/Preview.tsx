@@ -1,4 +1,4 @@
-import  { createElement, FC } from "react";
+import { createElement, FC } from "react";
 import { useDataContext, useUserInteractionContext } from "../Providers";
 import { SchemaFormat, USE_EVAL_TAG } from "../types";
 
@@ -44,31 +44,31 @@ const Preview: FC<Props> = ({
     if (Array.isArray(element)) {
       return element.map((el) => mapper(el));
     }
-  
+
     const onClickHandler = (e: React.MouseEvent<HTMLDivElement>) => {
       onClick(element.id);
       e.stopPropagation();
     };
-  
+
     if (element?._map) {
-      const props = { ...element.props }; 
+      const props = { ...element.props };
       Object.entries(props).forEach(([key, value]) => {
-  
+
         // Check for recursive rendering
         if (value?._map) {
           const propElement = getChildren(element.id, key);
-  
+
           if (!propElement) {
             console.error(`Schema error: did not found element for slot ${element.id}.${key} `);
             props[key] = null;
             return;
           }
-  
+
           // Create the element recursively
           props[key] = mapper(propElement);
           return;
         }
-  
+
         // Check for values that bear a mark to evaluate. This is for functions mostly.
         if (value && typeof value === 'string' && value.startsWith(USE_EVAL_TAG)) {
           // eslint-disable-next-line
@@ -77,7 +77,7 @@ const Preview: FC<Props> = ({
           return;
         }
       });
-  
+
       // If the user enebled on click selection add the selec function to the element.
       // This will not work if the top element of the component is not getting the handler
       // (for example you don't pass down ...restProps to your styled component)
@@ -101,7 +101,7 @@ const Preview: FC<Props> = ({
           ...highlightCss,
         };
       }
-  
+
       return (
         createElement(
           // @ts-ignore
@@ -113,15 +113,18 @@ const Preview: FC<Props> = ({
         )
       );
     }
-  
+
     return element.value;
   }
-  
 
-  return ( 
-    <>
-      { rootElements && mapper(rootElements) }
-    </>
+
+  return (
+    <div
+      onClick={() => setSelectedElement('')}
+      style={{ width: "100%", height: "100%" }}
+    >
+      {rootElements && mapper(rootElements)}
+    </div>
   )
 };
 
