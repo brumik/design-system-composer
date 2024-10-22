@@ -10,4 +10,5 @@ lib/dist
 
 # misc
 .DS_Store
-
+.envrc
+.direnv/
