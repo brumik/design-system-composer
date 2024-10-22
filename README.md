@@ -16,3 +16,10 @@ NPM Package: https://www.npmjs.com/package/design-system-composer
 ## Deployment
 
 - TODO
+
+## TODO
+
+- remove deps on mui as it is hard to maintain and it's invasive
+- move to tailwind as it is dev dep
+- update ux to have menus instead of long list
+- fix release
